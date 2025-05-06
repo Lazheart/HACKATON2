@@ -1,7 +1,9 @@
 package com.example.demo.usuario.application;
 
+import com.example.demo.limite.domain.Limite;
 import com.example.demo.usuario.domain.Usuario;
 import com.example.demo.usuario.domain.UsuarioService;
+import com.example.demo.usuario.dto.UsuarioDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,8 +48,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}/consumption")
-    public ResponseEntity<ConsumoReporte> obtenerConsumoUsuario(@PathVariable Long id) {
-        ConsumoReporte reporte = usuarioService.obtenerConsumo(id);
+    public ResponseEntity<UsuarioDto> obtenerConsumoUsuario(@PathVariable Long id) {
+        UsuarioDto reporte = usuarioService.obtenerConsumo(id);
         return ResponseEntity.ok(reporte);
     }
 }

@@ -1,6 +1,9 @@
 package com.example.demo.usuario.domain;
 
-import com.example.demo.usuario.domain.Usuario;
+import com.example.demo.limite.domain.Limite;
+import com.example.demo.limite.infraestructure.LimiteRepository;
+import com.example.demo.usuario.dto.UsuarioDto;
+import com.example.demo.usuario.infraestructure.SolicitudRepository;
 import com.example.demo.usuario.infraestructure.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +14,15 @@ import java.util.Optional;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final LimiteRepository limiteRepository;
+    private final SolicitudRepository solicitudRepository;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository,
+                          LimiteRepository limiteRepository,
+                          SolicitudRepository solicitudRepository) {
         this.usuarioRepository = usuarioRepository;
+        this.limiteRepository = limiteRepository;
+        this.solicitudRepository = solicitudRepository;
     }
 
     public Usuario crearUsuario(Usuario usuario) {
@@ -36,5 +45,21 @@ public class UsuarioService {
         usuario.setCorreo(datosActualizados.getCorreo());
         return usuarioRepository.save(usuario);
     }
-}
 
+    public void asignarLimite(Long usuarioId, Limite limite) {
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        limite.setUsuario(usuario);
+        limiteRepository.save(limite);
+    }
+
+    public UsuarioDto obtenerConsumo(Long usuarioId) {
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        int totalSolicitudes = solicitudRepository.countByUsuarioId(usuarioId);
+        int totalTokens = solicitudRepository.sumTokensByUsuarioId(usuarioId);
+
+        return new UsuarioDto(usuarioId, totalSolicitudes, totalTokens);
+    }
+}
