@@ -2,6 +2,7 @@ package com.example.demo.usuario.domain;
 
 import com.example.demo.limite.domain.Limite;
 import com.example.demo.limite.infraestructure.LimiteRepository;
+import com.example.demo.usuario.dto.UsuarioDto;
 import com.example.demo.usuario.infraestructure.SolicitudRepository;
 import com.example.demo.usuario.infraestructure.UsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -52,13 +53,13 @@ public class UsuarioService {
         limiteRepository.save(limite);
     }
 
-    public ConsumoReporte obtenerConsumo(Long usuarioId) {
+    public UsuarioDto obtenerConsumo(Long usuarioId) {
         Usuario usuario = usuarioRepository.findById(usuarioId)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
         int totalSolicitudes = solicitudRepository.countByUsuarioId(usuarioId);
         int totalTokens = solicitudRepository.sumTokensByUsuarioId(usuarioId);
 
-        return new ConsumoReporte(usuarioId, totalSolicitudes, totalTokens);
+        return new UsuarioDto(usuarioId, totalSolicitudes, totalTokens);
     }
 }
