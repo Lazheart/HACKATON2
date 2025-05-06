@@ -1,5 +1,6 @@
 package com.example.demo.usuario.application;
 
+import com.example.demo.limite.domain.Limite;
 import com.example.demo.usuario.domain.Usuario;
 import com.example.demo.usuario.domain.UsuarioService;
 import org.springframework.http.ResponseEntity;
