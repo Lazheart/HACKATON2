@@ -13,19 +13,18 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
-    private String Nombre;
-    private String Correo;
-    private String Contraseña;
+    private String nombre;
+    private String correo;
+    private String contraseña;
 
     @Enumerated(EnumType.STRING)
-    private Rol Rol;
+    private Rol rol;
 
     @ManyToOne
     @JoinColumn(name = "empresa_id")
-    private Empresa Empresa;
+    private Empresa empresa;
 
-    private boolean Activo;
-
+    private boolean activo;
 }

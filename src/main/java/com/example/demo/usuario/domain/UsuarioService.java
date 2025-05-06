@@ -1,6 +1,7 @@
 package com.example.demo.usuario.domain;
-import com.sparky.domain.Usuario;
-import com.sparky.repository.UsuarioRepository;
+
+import com.example.demo.usuario.domain.Usuario;
+import com.example.demo.usuario.infraestructure.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.example.demo.usuario.application;
 
-import com.sparky.domain.Usuario;
-import com.sparky.service.UsuarioService;
+import com.example.demo.usuario.domain.Usuario;
+import com.example.demo.usuario.domain.UsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,6 +37,18 @@ public class UsuarioController {
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         return ResponseEntity.ok(usuarioService.actualizarUsuario(id, usuario));
+    }
+
+    @PostMapping("/{id}/limits")
+    public ResponseEntity<String> asignarLimiteUsuario(@PathVariable Long id, @RequestBody Limite limite) {
+        usuarioService.asignarLimite(id, limite);
+        return ResponseEntity.ok("Límite asignado correctamente al usuario.");
+    }
+
+    @GetMapping("/{id}/consumption")
+    public ResponseEntity<ConsumoReporte> obtenerConsumoUsuario(@PathVariable Long id) {
+        ConsumoReporte reporte = usuarioService.obtenerConsumo(id);
+        return ResponseEntity.ok(reporte);
     }
 }
 
