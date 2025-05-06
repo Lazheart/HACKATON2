@@ -1,4 +1,4 @@
-package com.example.demo.sparky.application;
+package com.example.demo.sparky.dto;
 
 import com.example.demo.sparky.domain.Sparky;
 import com.example.demo.empresa.domain.Empresa;
@@ -7,14 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SparkyMapper {
-
-    public static Sparky toDomain(SparkyDTO dto) {
-        Sparky sparky = new Sparky();
-        sparky.setId(dto.getId());
-        sparky.setNombre(dto.getNombre());
-
-        return sparky;
-    }
 
     public static SparkyDTO toDTO(Sparky sparky) {
         List<Long> empresaIds = sparky.getEmpresas().stream()
@@ -26,5 +18,11 @@ public class SparkyMapper {
                 sparky.getNombre(),
                 empresaIds
         );
+    }
+
+    public static Sparky toDomain(SparkyRequestDTO request) {
+        Sparky sparky = new Sparky();
+        sparky.setNombre(request.getNombre());
+        return sparky;
     }
 }

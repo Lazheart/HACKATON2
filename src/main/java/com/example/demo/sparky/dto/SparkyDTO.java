@@ -1,4 +1,4 @@
-package com.example.demo.sparky.application;
+package com.example.demo.sparky.dto;
 
 import java.util.List;
 
@@ -6,7 +6,9 @@ public class SparkyDTO {
     private Long id;
     private String nombre;
     private List<Long> empresaIds;
+
     public SparkyDTO() {}
+
     public SparkyDTO(Long id, String nombre, List<Long> empresaIds) {
         this.id = id;
         this.nombre = nombre;
