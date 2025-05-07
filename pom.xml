@@ -128,10 +128,18 @@
 
     <repositories>
         <repository>
-            <id>azure-sdk</id>
+            <id>azure-sdk-snapshots</id>
+            <name>Azure SDK for Java - Snapshots</name>
             <url>https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-java/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
+
 
     <build>
         <plugins>
