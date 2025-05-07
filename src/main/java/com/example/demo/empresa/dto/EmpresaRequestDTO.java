@@ -2,7 +2,12 @@ package com.example.demo.empresa.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
+
+@Getter
+@Setter
 public class EmpresaRequestDTO {
 
     @NotBlank
@@ -14,29 +19,4 @@ public class EmpresaRequestDTO {
 
     private boolean estadoActivo;
 
-    // Getters y setters
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getRuc() {
-        return ruc;
-    }
-
-    public void setRuc(String ruc) {
-        this.ruc = ruc;
-    }
-
-    public boolean isEstadoActivo() {
-        return estadoActivo;
-    }
-
-    public void setEstadoActivo(boolean estadoActivo) {
-        this.estadoActivo = estadoActivo;
-    }
 }
