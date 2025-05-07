@@ -1,6 +1,5 @@
 package com.example.demo.usuario.domain;
 
-import java.util.List;
 import com.example.demo.empresa.domain.Empresa;
 import jakarta.persistence.*;
 import lombok.Getter;

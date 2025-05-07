@@ -1,5 +1,6 @@
-package com.example.demo.usuario.domain;
+package com.example.demo.usuario.custom;
 
+import com.example.demo.usuario.domain.Usuario;
 import com.example.demo.usuario.infraestructure.UsuarioRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
