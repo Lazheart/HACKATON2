@@ -1,5 +1,6 @@
 package com.example.demo.sparky.application;
 
+import com.example.demo.empresa.domain.Empresa;
 import com.example.demo.sparky.domain.SparkyService;
 import com.example.demo.sparky.domain.Sparky;
 import jakarta.persistence.OneToMany;

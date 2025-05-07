@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LimiteRepository extends JpaRepository<Limite, Long> {
+
 }
