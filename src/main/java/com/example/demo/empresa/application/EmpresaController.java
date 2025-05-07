@@ -50,4 +50,3 @@ public class EmpresaController {
         return ResponseEntity.ok(empresaService.obtenerReporteConsumo(id));
     }
 }
-
