@@ -28,9 +28,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/admin/**").hasRole("SPARKY_ADMIN")
-                        .requestMatchers("/api/company/**").hasRole("COMPANY_ADMIN")
-                        .requestMatchers("/api/ai/**").hasRole("USER")
+                        .requestMatchers("/api/admin/**").hasAuthority("ROLE_SPARKY_ADMIN")
+                        .requestMatchers("/api/company/**").hasAuthority("ROLE_COMPANY_ADMIN")
+                        .requestMatchers("/api/ai/**").hasAuthority("ROLE_USER")
                         .anyRequest().authenticated()
                 );
 
@@ -49,3 +49,4 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
