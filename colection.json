@@ -1,0 +1,235 @@
+{
+  "info": {
+    "name": "API - Proyecto HACKATON2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Crear Empresa",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nombre\": \"Empresa ejemplo\",\n    \"ruc\": \"12345678901\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/admin/companies",
+          "host": ["{{base_url}}"],
+          "path": ["api", "admin", "companies"]
+        }
+      }
+    },
+    {
+      "name": "Listar Empresas",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/admin/companies",
+          "host": ["{{base_url}}"],
+          "path": ["api", "admin", "companies"]
+        }
+      }
+    },
+    {
+      "name": "Obtener Empresa por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/admin/companies/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "admin", "companies", ":id"]
+        }
+      }
+    },
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"user\",\n    \"password\": \"pass\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "Auth - Register",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"newuser\",\n    \"password\": \"newpass\",\n    \"email\": \"test@example.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "Chat - Obtener Chat",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/chat/:chatId",
+          "host": ["{{base_url}}"],
+          "path": ["api", "chat", ":chatId"]
+        }
+      }
+    },
+    {
+      "name": "Chat - Enviar Mensaje",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"chatId\": 1,\n    \"mensaje\": \"Hola\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/chat/send",
+          "host": ["{{base_url}}"],
+          "path": ["api", "chat", "send"]
+        }
+      }
+    },
+    {
+      "name": "Restricciones - Listar",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/restricciones",
+          "host": ["{{base_url}}"],
+          "path": ["api", "restricciones"]
+        }
+      }
+    },
+    {
+      "name": "Restricciones - Crear",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"tipo\": \"horario\",\n    \"detalle\": \"no disponible de 2 a 4 pm\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/restricciones",
+          "host": ["{{base_url}}"],
+          "path": ["api", "restricciones"]
+        }
+      }
+    },
+    {
+      "name": "Solicitudes - Listar",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/solicitudes",
+          "host": ["{{base_url}}"],
+          "path": ["api", "solicitudes"]
+        }
+      }
+    },
+    {
+      "name": "Solicitudes - Crear",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"usuarioId\": 1,\n    \"detalle\": \"Necesito ayuda con...\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/solicitudes",
+          "host": ["{{base_url}}"],
+          "path": ["api", "solicitudes"]
+        }
+      }
+    },
+    {
+      "name": "Solicitudes - Obtener por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/solicitudes/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "solicitudes", ":id"]
+        }
+      }
+    },
+    {
+      "name": "Sparky - Recomendaciones",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/sparky/recomendaciones",
+          "host": ["{{base_url}}"],
+          "path": ["api", "sparky", "recomendaciones"]
+        }
+      }
+    },
+    {
+      "name": "Sparky - Chat",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"mensaje\": \"¿Qué me recomiendas?\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/sparky/chat",
+          "host": ["{{base_url}}"],
+          "path": ["api", "sparky", "chat"]
+        }
+      }
+    },
+    {
+      "name": "Usuarios - Listar",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/users",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users"]
+        }
+      }
+    },
+    {
+      "name": "Usuarios - Crear",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"nombre\": \"Juan\",\n    \"correo\": \"juan@mail.com\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/users",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users"]
+        }
+      }
+    },
+    {
+      "name": "Usuarios - Obtener por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/api/users/:id",
+          "host": ["{{base_url}}"],
+          "path": ["api", "users", ":id"]
+        }
+      }
+    }
+  ]
+}
