@@ -1,6 +1,6 @@
-package com.example.githubmodels.application;
+package com.example.demo.githubmodels.application;
 
-import com.example.githubmodels.domain.ChatService;
+import com.example.demo.githubmodels.domain.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

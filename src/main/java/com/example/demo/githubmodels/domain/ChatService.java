@@ -1,4 +1,4 @@
-package com.example.githubmodels.domain;
+package com.example.demo.githubmodels.domain;
 
 import com.azure.ai.inference.ChatCompletionsClient;
 import com.azure.ai.inference.ChatCompletionsClientBuilder;
